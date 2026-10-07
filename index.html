@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17438d">
+<meta name="description" content="Calcule o peso de uma escada Mecanflex pela altura e pelas aberturas de entrada e saída. Fale com um consultor Orguel.">
+<title>Calculadora Mecanflex | Orguel</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css?v=5"><script src="./app.js?v=5" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#calculadora">Ir para a calculadora</a>
+<header class="site-header"><div class="header-inner">
+<a class="brand" href="./" aria-label="Orguel, início"><img src="./orguel.png" width="2526" height="462" alt="Orguel"></a>
+<div class="header-title"><span class="header-divider"></span><span>Escada de acesso <strong>Mecanflex</strong></span></div>
+</div></header>
+<main id="calculadora" class="workspace" tabindex="-1">
+<div class="page-intro"><p class="eyebrow">CALCULADORA MECANFLEX</p><h1>Calcule o peso da sua escada.</h1><p>Informe a altura e escolha onde serão os acessos.</p></div>
+<div class="calculator-layout">
+<form id="calculator-form" class="configuration" novalidate>
+<noscript><p class="field-error">Ative o JavaScript para calcular o peso. Você também pode falar com um consultor pelo botão ao lado.</p></noscript>
+<div class="configuration-heading"><h2>Configure sua escada</h2><span>3 informações</span></div>
+<section class="height-section" aria-labelledby="height-label">
+<div class="field-heading"><span class="step-number" aria-hidden="true">01</span><label id="height-label" for="altura">Altura da escada</label></div>
+<div class="height-control">
+<button type="button" id="decrease" class="stepper" aria-label="Diminuir altura em 50 centímetros"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
+<div class="height-value"><input id="altura" name="alturaCm" type="text" inputmode="decimal" maxlength="12" value="630" autocomplete="off" placeholder="Ex.: 475" aria-describedby="height-hint height-error"><span aria-hidden="true">cm</span></div>
+<button type="button" id="increase" class="stepper" aria-label="Aumentar altura em 50 centímetros"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></svg></button>
+</div><p id="height-hint" class="field-hint">Digite a altura desejada, como 475 cm. De 250 a 6.000 cm.</p><p id="height-error" class="field-error" role="alert" hidden></p>
+</section>
+<fieldset class="access-section"><legend><span class="step-number" aria-hidden="true">02</span>Local da entrada</legend><div class="access-options">
+<label class="access-option"><input type="radio" name="entrada" value="FRONTAL" checked><span class="option-content"><svg class="plan-icon" aria-hidden="true" viewBox="0 0 72 44"><path d="M8 7h56v28H8zM21 7v28M51 7v28M21 21h30"/><path class="opening" d="M10 35h10"/></svg><span class="option-text"><strong>Frontal</strong><span>Pela frente do patamar</span></span><span class="radio-mark" aria-hidden="true"></span></span></label>
+<label class="access-option"><input type="radio" name="entrada" value="LATERAL"><span class="option-content"><svg class="plan-icon" aria-hidden="true" viewBox="0 0 72 44"><path d="M8 7h56v28H8zM21 7v28M51 7v28M21 21h30"/><path class="opening" d="M8 9v24"/></svg><span class="option-text"><strong>Lateral</strong><span>Pela lateral do patamar</span></span><span class="radio-mark" aria-hidden="true"></span></span></label>
+</div></fieldset>
+<fieldset class="access-section"><legend><span class="step-number" aria-hidden="true">03</span>Local da saída</legend><div class="access-options">
+<label class="access-option"><input type="radio" name="saida" value="FRONTAL" checked><span class="option-content"><svg class="plan-icon" aria-hidden="true" viewBox="0 0 72 44"><path d="M8 7h56v28H8zM21 7v28M51 7v28M21 21h30"/><path class="opening" d="M52 7h10"/></svg><span class="option-text"><strong>Frontal</strong><span>Pela frente do patamar</span></span><span class="radio-mark" aria-hidden="true"></span></span></label>
+<label class="access-option"><input type="radio" name="saida" value="LATERAL"><span class="option-content"><svg class="plan-icon" aria-hidden="true" viewBox="0 0 72 44"><path d="M8 7h56v28H8zM21 7v28M51 7v28M21 21h30"/><path class="opening" d="M64 9v24"/></svg><span class="option-text"><strong>Lateral</strong><span>Pela lateral do patamar</span></span><span class="radio-mark" aria-hidden="true"></span></span></label>
+</div></fieldset>
+<div class="form-footer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M6 7a7 7 0 0 1 12-1l2 2M4 16l2 2a7 7 0 0 0 12-1"/></svg><span>O peso atualiza conforme você configura.</span></div>
+<button class="sr-only" type="submit" tabindex="-1" aria-hidden="true">Calcular peso</button>
+</form>
+<aside class="result-panel" aria-labelledby="result-heading">
+<div class="result-top"><span class="weight-icon"><svg aria-hidden="true" viewBox="0 0 28 28"><path d="M10 8a4 4 0 0 1 8 0M7 8h14l3 15H4L7 8ZM10 16h8"/></svg></span><span>MECANFLEX</span></div>
+<div class="result-main"><h2 id="result-heading">Peso total do equipamento</h2><div id="weight-region" class="weight-region" aria-live="polite" aria-atomic="true" aria-busy="true"><output id="peso" class="weight-value">—</output><span class="weight-unit">kg</span></div><p id="result-status" class="result-status" role="status" aria-atomic="true">Informe os dados para calcular o peso.</p></div>
+<div class="result-bottom"><p>Vamos planejar seu acesso?</p><a id="consultor" class="consultant-button" href="https://orguel.com.br/contato/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2v-10A8.5 8.5 0 0 1 10.5 3H13a8 8 0 0 1 8 8.5ZM7 10h10M7 14h6"/></svg>Falar com um consultor</a><span class="contact-caption">Conte com a equipe Orguel.</span></div>
+</aside></div>
+<p class="mounting-note">Para alturas entre níveis de montagem, o cálculo considera o próximo nível disponível.</p>
+</main>
+<footer class="site-footer"><img class="footer-symbol" src="./orguel.png" alt="Orguel" width="56" height="56"><p>Engenharia, inovação e confiança.</p></footer>
+</body></html>
